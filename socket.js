@@ -18,7 +18,7 @@ var addVersao = function(itemVersao){
 function handler (req, res) {
 	console.log(req.url);
 
-  fs.readFile(__dirname + '/index.html',
+  fs.readFile(__dirname + req.url,
     function (err, data) {
       if (err) {
         res.writeHead(500);
@@ -35,6 +35,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('newPosition', function (data) {
 
+    socket.broadcast.emit('atualizarPosicao', data);
     console.log(data);
     
   });
