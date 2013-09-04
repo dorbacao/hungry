@@ -5,7 +5,7 @@ var app = require('http').createServer(handler)
 var id = 0;
 var express = require('express');
 
-app.listen(8080);
+app.listen(8082);
 
 var listaVersao = [];
 
